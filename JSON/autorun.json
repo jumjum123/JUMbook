@@ -1,0 +1,5 @@
+{
+    "General" : {"Speed" : "Medium"},
+	"Sound" : {"Delay" : 0},
+    "Image" :	{"Zoom" : false, "Samples" : false}	
+}

@@ -1,0 +1,18 @@
+﻿{
+  "pageLanguage": "de",
+  "includeLanguages": "de,en,es,fr,it,ja,hi,zh-CN,pt,nl",
+  "speakLanguages": "de,en",
+  "language2lang": [
+    {"language":"de","lang":"de-DE","sentenceEnd":"."},  
+    {"language":"en","lang":"en-US","sentenceEnd":"."},  
+    {"language":"fr","lang":"fr-FR","sentenceEnd":"."},  
+    {"language":"it","lang":"it-IT","sentenceEnd":"."},  
+    {"language":"es","lang":"es-ES","sentenceEnd":"."},
+    {"language":"ja","lang":"ja-JP","sentenceEnd":"。"},
+    {"language":"hi","lang":"hi-IN","sentenceEnd":"।"},
+    {"language":"zh-CN","lang":"zh-CN","sentenceEnd":"。"},
+    {"language":"pt","lang":"pt-BR","sentenceEnd":"."},
+    {"language":"nl","lang":"nl-NL","sentenceEnd":"."}	
+  ],
+  "defaultLang":{"lang":"de-DE","sentenceEnd":"."}
+}

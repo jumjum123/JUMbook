@@ -1,0 +1,20 @@
+<html>
+<head>
+  <script src="../js/GeneralFunctions.js"></script>
+  <script src="js/tensorflow/FacesTensorflow.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.9.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface"></script>
+</head>
+<body>
+<select id="projects"></select>
+<button id="findFacesBtn">Find Faces</button>
+<select id="faces"></select><button id="showFacesBtn">mark Faces</button>
+<br>
+<canvas id="aktCanvas"></canvas>
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  init();
+});
+</script>
+</html>  

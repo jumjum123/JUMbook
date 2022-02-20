@@ -1,0 +1,91 @@
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <script src="js/GeneralFunctions.js"></script>
+  <script src="js/JUMbook.js"></script>
+  <script src="js/Plugins.js"></script>
+  <script src="js/Settings.js"></script>
+  <script src="js/Autorun.js"></script>
+  <script src="js/Util_Page.js"></script>
+  <script src="js/Util_Image.js"></script>
+  <script src="js/Util_Video.js"></script>
+  <script src="js/Util_WebUrl.js"></script>
+  <script src="js/Util_Text.js"></script>
+  <script src="js/Util_Background.js"></script>
+  <script src="js/Util_Elements.js"></script>
+  <script src="js/faceApi.js"></script>
+ 
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <link rel="stylesheet" href="css/croppie.css" />
+  <script src="js/croppie.js"></script>
+  <script src="js/qrcode.js"></script>
+</head>
+<body>
+<span id="google_translate_element" 
+  style="position:absolute;top:0;left:110;z-index:100;">
+</span>
+<div id="settingTools" style="position:absolute;top:30;left:50;z-index:100">
+  <div id="viewerSettings" style="position:absolute;width:600px;height:400px;left:50px;top:50px;z-index:99;background:#00c0c0;">
+    <table>
+      <ul>
+        <li>General</li>
+	    <ul>
+		  <li>show Page<input type="checkbox" id="settingsShowPage"></li>
+		  <li>Speed
+		    <select id="settingsGeneralSpeed">
+			  <option>Medium</option>
+			  <option>Slow</option>
+			  <option>Fast</option>
+			</select>
+		  </li>
+		</ul>
+        <li>Sound</li>
+	    <ul>
+		  <li>Delay
+		    <select id="settingsSoundDelay">
+		      <option>0</option>
+			  <option>1</option>
+			  <option>2</option>
+			  <option>4</option>
+		    </select>
+		  </li>
+		</ul>
+	    <li>Image</li>
+	    <ul>
+	      <li>Show samples <input type="checkbox" id="settingsImageSamples"></li>
+	      <li>Zoom <input type="checkbox" id="settingsImageZoom"></li>
+	    </ul>
+      </ul>
+    </table>
+    <br>
+	<button id="settingsSave">Save settings</button>
+	<button id="exitSettingTools">Exit Settings</button>
+  </div>
+</div>
+<div style="position:absolute;width:600px;height:550px;left:50px;top:50px;z-index:99;background:#00c000;" id="adminPageDiv">
+  Page
+  <br>Header<input type="text" id="pageHeader" size="25">
+  <br>Backnoise<input type="text" id="pageBacknoise" size="50">
+  <br>Plugins:<select id="pagePlugins" size="5"></select><select id="adminPlugins" size="8"></select>
+  <br><button id="AdminSavePage">Save Page</button>
+  <button id="AdminPageExit">Exit admin</button>
+  <hr><input type="text" id="umlaut" value='["AE","Ä"]'><button id="testUpload">Test upload</button><hr>
+</div>
+<div style="position:absolute;width:600px;height:500px;left:50px;top:50px;z-index:99;background:#00c0c0;" id="adminImageDiv">
+  Image
+  <div id="speakTextField"><textarea id="AdminTextBox" cols="80" rows="5"></textarea></div>
+  <br>Video<select id="imageVideo"size="5"></select><select id="adminVideo" size="8"></select>
+  <br>WebUrl<textarea cols="50" rows="2" id="adminWebUrl"></textarea>
+  <br><button id="AdminSaveImage">Save image</button>
+  <button id="AdminImageExit">Exit admin</button>
+</div>
+<div id="bookbody"></div>
+</body>
+<script>
+//for translation;
+function googleTranslateElementInit() {initLanguages();}
+document.addEventListener('DOMContentLoaded', function(){
+  init();
+});
+</script>
+</html>

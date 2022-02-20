@@ -1,0 +1,93 @@
+<html>
+<head>
+<script src="js/GeneralFunctions.js"></script>
+<script src="js/JUMbookAdmin.js"></script>
+<script defer src="js/face-api.js"></script>
+<script src="js/faceApi.js"></script>
+</head>
+<body>
+<table id="personsTable" border="1" width="100%" style="background-color:80d080">
+  <tr><th colspan="3"><h3>Persons Data</h3></th></tr>
+  <tr>
+    <th>
+      <select id="personsList"></select>
+      <br>
+      <input id="newPersonName" value="my new person">
+      <button id="createNewPersonBtn">Create new person</button>
+    </th>
+	<th align="left">
+      <input type="file" id="faceFile">
+      <select id="facesList"></select>
+	  <button id="uploadFaceBtn">upload face</button>
+	</th>
+	<th><button id="createFaceDescBtn">Create person description</button><button id="showPerson">Show</button></th>
+  </tr>
+</table>
+<br>
+<table id="statusTable" border="1" width="100%" style="background-color:a0ffa0">
+  <tr><th colspan="3"><h3>Project handling</h3></th></tr>
+  <tr>
+    <th width="33%"><select id="projectList"></select></th>
+	<th>
+	  <button id="showBookBtn">Show</button>
+	  <button id="adminBookBtn">Admin</button>
+	  <button id="autorunBookBtn">Autorun</button>
+	</th>
+	<th width="33%" align="left">
+	  <input type="file" id="mcfFile">
+      <br>
+	  <input type="text" id="projectName" value="myNewProject">
+	  <button id="createProjectBtn">Create New Book</button>
+	</th>
+  </tr>
+</table>
+<br>
+<table id="uploadTable" border="1" width="100%" style="background-color:c0ffc0">
+  <tr>
+    <th colspan="3">
+	  Copy all your images, videos, sounds to multibook on server<br>
+	  Images have extension jpg, my choice to convert is FastStone Photo Resizer<br>
+	  reduce quality to 0.7, this reduces size and is still ok in browser
+	</th>
+  </tr>
+  <tr>
+    <th>
+	  Images<br><input type="file" id="imageFile"><button id="uploadImageBtn">upload</button>
+	  <br><select id="imageList"></select>
+	</th>
+    <th>
+	  Videos<br><input type="file" id="videoFile"><button id="uploadVideoBtn">upload</button>
+	  <br><select id="videoList"></select>
+	</th>
+    <th>
+	  Sounds<br><input type="file" id="audioFile"><button id="uploadAudioBtn">upload</button>
+	  <br><select id="audioList"></select>
+	</th>
+  </tr>
+  <tr>
+    <th colspan="3">
+	  <button id="createListsBTN">Create all lists</button>
+	  <button id="correctFilename">Correct Images Types</button>
+	</th>
+  </tr>
+  <tr>
+    <th colspan="3">
+	  <H3>Tools</H3>
+    </th>
+  </tr>
+  <tr>
+    <th>
+	  <br><button id="checkMissingImages">Check missing Images</button><textarea id="missingImages"></textarea>
+    </th>
+    <th>
+	  <br><button id="createFaceDataBtn">create face data for Project</button><span id="imageCnt"></>
+	</th>
+  </tr>
+</table>
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  init();
+});
+</script>
+</html>

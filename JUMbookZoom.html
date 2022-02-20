@@ -1,0 +1,27 @@
+<html>
+<head>
+  <script src="js/GeneralFunctions.js"></script>
+  <link rel="stylesheet" href="css/croppie.css" />
+  <script src="js/croppie.js"></script>
+</head>
+<body>
+</body>
+<script>
+  var croppie;
+  document.addEventListener('DOMContentLoaded', function(){
+  var windowSize = {width:window.innerWidth,height:window.innerHeight - 20};
+  var src = getUrlVar("imgsrc");
+  var html = '<img id="bigImg" src="' + src + '"></img>';
+  document.body.innerHTML = html;
+
+  setTimeout(function(){
+    croppie = new Croppie(getElementById("bigImg"),{
+      viewport:{width:windowSize.width * 0.9,
+	  height:windowSize.height * 0.9,type:"square"},
+	  enableResize:true
+    });
+    croppie.options.update = function(ev) { var cropData = ev.detail; console.log(ev); };
+  },200);
+});
+</script>
+</html>
