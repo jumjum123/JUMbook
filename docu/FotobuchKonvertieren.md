@@ -1,6 +1,6 @@
 # Fotobuch konvertieren
 Zuerst brauchen wir die Datei, die mit Hilfe von Cewe-Fotobuch erstellt wurde. Da jeder seine eigenen Ideen zum Speicherort hat, gibt es hier keine allgemeine Regel.
-Im Normalfall suchen wir nach einer Datei und einem Ordner. Die Datei hat die Erweiterung mcf, also z.B. MeinSuperFotobuch.mcf. Der Ordner beinhaltet die Fotos, die später im fertigen Buch zu sehen sind.
+Im Normalfall suchen wir nach einer Datei und einem Ordner. Die Datei hat die Erweiterung mcf, also z.B. MeinSuperFotobuch.mcf. Der dazu passende Ordner beinhaltet die Fotos, die später im fertigen Buch zu sehen sind.
 Und jetzt gehts los
 - [Admin starten](#admin-starten)
 - [Project erstellen](#project-erstellen)
@@ -9,14 +9,14 @@ Und jetzt gehts los
 - [Steurdaten erstellen](#steuerdaten erstellen)
 - [Der erste Test](#der-erste-test)
 
-Nachdem das alles gut gelaufen ist, können wir uns mit dem beschäftigen, was JUMbook uns alles bietet. Wie Videos eingebunden werden, usw. usw. steht im [Adminbuch](https://www.github.com/JUMbook/docu/Adminbuch.md)
-Auch der etwas komplexere Bereich der [Gesichtserkennung](https://www.github.com/JUMbook/docu/Gesichtserkennung,md) wird in einer eigenen Docu weiter erläutert.
+Nachdem das alles gut gelaufen ist, können wir uns mit dem beschäftigen, was JUMbook uns alles bietet. Wie Videos eingebunden werden, usw. usw. steht im [Adminbuch](https://www.github.com/jumjum123/JUMbook/docu/Adminbuch.md)
+Auch der etwas komplexere Bereich der [Gesichtserkennung](https://www.github.com/JUMbook/docu/Gesichtserkennung.md) wird in einer eigenen Docu weiter erläutert.
 
 ## Admin starten
 Das ist der einfachste Teil. Nach dem Kopieren der Dateien von Github finden wir im Ordner https://www.meinServer.de/JUMbook die Datei JUMbookAdmin.html. Die wird gestartet, und wir finden dort 3 farblich unterschiedene Blöcke.
 
 ## Project erstellen
-Im ersten der Blöcke finden wir das Project handling. Ganz links ist die Liste der schon vorhandenen Projekte. Diese Liste ist beim ersten Versuch logischerweise leer. Als nächstes finden wir Buttons, um ein schon vorhandenes JUMbook zu starten. Mehr dazu ist in einer anderen Docu zu finden.
+Im zweiten der Blöcke finden wir das Project handling. Ganz links ist die Liste der schon vorhandenen Projekte. Diese Liste ist beim ersten Versuch logischerweise leer. Als nächstes finden wir Buttons, um ein schon vorhandenes JUMbook zu starten. Mehr dazu ist in einer anderen Docu zu finden.
 Der letzte Block ganz rechts ist unser Ziel. Zuerst wird im Textfeld der Wunschname unseres neuen Projekts eingegeben. Dieser muss nicht mit dem Namen des ursprünglichen Fotobuchs übereinstimmen.
 Als nächstes selektieren wir die .mcf Datei des zu übertragenden Fotobuches.
 Jetzt noch den Button "Create New Book" betätigen, und es geht los. Am Ende dieser Aktion haben wir neue Ordner in /Multibook/Multibooks und in JUMbook/Multibooks.
