@@ -15,6 +15,7 @@ So kam schnell die Frage, ob man das Fotobuch ins Internet bringen könnte. Und 
 - [unterstützen einen Autorun Modus](#unterstützen-einen-autorun-modus)
 - [und schwupp haben wir das JUMbook](#und-schwupp-haben-wir-das-jumbook)
 - [mit all seinen Macken](#mit-all-seinen-macken)
+- [danke an OpenSource](#danke-an-opensource)
 
 ## nehmen uns das Fotobuch
 Bei der Erstellung des CEWE-Fotobuches ensteht eine Datei mit der Extension mcf. Dahinter steckt eine XML formatierte Datei. Diese wird in JSON übersetzt, ist halt mehr Javascript like als XML.
@@ -51,3 +52,31 @@ JUM hingegen ist beim Spielen in meiner Jugend entstanden. Zusammen mit einem Fr
 ## mit all seinen Macken
 JUMbook ist ein gewachsenes Werkzeug, und erfüllt seinen Zweck für mich. Gewachsen bedeutet üblicherweise, dass man dabei immer wieder etwas dazu gelernt hat. Und erfüllt seinen Zweck heisst, dass ich damit klar komme.
 In Summe, vermutlich sind einige Ungereimtheiten und holpriges Interface drin. Vielleicht sogar noch ein paar dieser kleinen Käfer, auch Bugs genannt. Naja, wenn jemand da was findet, immer her damit. Wenn das mit einer Idee kommt, wie man es besser machen kann, umso besser.
+## Danke an OpenSource
+Immer wieder habe ich bei der Erstellung auf Arbeiten zugreifen können, die andere für Open Source zur Verfügung gestellt haben.
+Das fängt an mit einfachen kurzen Schnippseln, die über das Internet schnell zu finden sind. Und endet bei grossen Projekten, die teilweise auch von den Grossen am Markt kommen. Das sind:
+- [FaceAPI](#faceapi)
+- [Croppie](#croppie)
+- [qrcode](#qrcode)
+- [Google Translate](#google-translate)
+- [Tensorflow](#tensorflow)
+
+## FaceAPI
+Auf der Basis von Tensorflow ist hier ein API entstanden, dass Gesichter findet, und dann auch die Personen dahinter erkennt.
+Source ist auf Github zu finden [face-api.js](https://github.com/justadudewhohacks/face-api.js/)
+Dank dieser Vorarbeit war es selbst einem newbie in diesem Bereich wie mir möglich entsprechende Funktionen in JUMbook einzubauen. 
+
+## Croppie
+Wenn man in einem Bild zoomen und scrollen will, ist Croppie eine gute Option. In JUMbook wird es genutzt, um sich Bilder genauer anzusehen.
+Source ist auf Github zu finden [croppie.js](https://github.com/Foliotek/Croppie)
+
+## qrcode
+qrcode ist ein API zur einfachen Erstellung von qrcodes. Auch wenn es schon recht lange existiert, mir hat es schnell geholfen. Es ist nicht überladen wie manche andere tools.
+Source ist auf Github zu finden [qrcode](https://github.com/davidshimjs/qrcodejs)
+
+## google translate
+Das ist eigentlich kein Open Source. Aber es ist halt sehr einfach, Übersetzungen in eigene Projekte einzubinden. mehr findet man über die [Homepage](https://translate.google.com/)
+
+## Tensorflow
+Mit Tensorflow ist eine riesige Source basis entstanden, die im Bereich KI ihresgleichen sucht. Und da das auch Anwendungen im Browser unterstützt, kann man es auch für eigene Tools nutzen. Bei JUMbook wird es von face-api.js genutzt.
+Source ist auf Github zu finden [tfjs](https://github.com/tensorflow/tfjs)

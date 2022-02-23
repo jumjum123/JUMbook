@@ -12,7 +12,7 @@ Was wir da alles haben finden wir im [Manual](https://(https://www.github.com/ju
 
 ## Admin starten
 Nehmen wir mal zuerst den einfachen Weg. Wir starten im Ordner https://www.meinServer.de/JUMbook die Datei JUMbookAdmin.html.
-Dort wählen wir im zweiten Block unser bereits angelegtes Project. Dann ein Click auf den Button, und es sollte das entsprechende JUMbook in einem neuen Tab erscheinen.
+Dort wählen wir im zweiten Block unser bereits angelegtes Project. Dann ein Click auf den Admin Button, und es sollte das entsprechende JUMbook in einem neuen Tab erscheinen.
 
 ## Project aufrufen
 Ein anderer Weg ist die manuelle Eingabe des entsprechenden URL.

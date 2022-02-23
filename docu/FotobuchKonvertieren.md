@@ -6,7 +6,7 @@ Und jetzt gehts los
 - [Project erstellen](#project-erstellen)
 - [Medien anpassen](#medien-anpassen)
 - [Medien hochladen](#medien-hochladen)
-- [Steurdaten erstellen](#steuerdaten erstellen)
+- [Steurdaten erstellen](#steuerdaten-erstellen)
 - [Der erste Test](#der-erste-test)
 
 Nachdem das alles gut gelaufen ist, können wir uns mit dem beschäftigen, was JUMbook uns alles bietet. Wie Videos eingebunden werden, usw. usw. steht im [Adminbuch](https://www.github.com/jumjum123/JUMbook/docu/Adminbuch.md)
