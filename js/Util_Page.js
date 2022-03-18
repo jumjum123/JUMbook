@@ -73,6 +73,7 @@ function pageutil(){
     elementShow("zoomButtonDiv",false);
 	elementShow("adminPageDiv",false);
 	elementShow("adminImageDiv",false);
+	elementShow("adminFaceDiv",false);
 	if(adminMode){
       me.adminShow();
 	  imageUtil.adminShow();
@@ -102,7 +103,7 @@ function pageutil(){
 	if(adminMode) me.adminSetHandler();
 	else{
 	  elementsBindClick("canvasImage",imageUtil.click);
-	  if(fotobook.faces){elementsBind("canvasImage","mousemove",imageUtil.mouseover);}
+	  if(fotobook.faces.showNames){elementsBind("canvasImage","mousemove",imageUtil.mouseover);}
 	  elementsBindClick("videoButton",videoUtil.click);
 	  elementsBindClick("weburlButton",weburlUtil.click);
 	  elementsBindClick("textSwitch",textUtil.click);

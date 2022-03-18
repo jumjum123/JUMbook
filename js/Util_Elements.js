@@ -6,6 +6,7 @@ function elementsutil(){
 	style += "height:20px;left:0px;top:0px;z-index:99;";
 	html = '<div id="pageButtons" style="' + style + '">';
     html += '<table width="100%" style="opacity:0.5;"><tr><th>';
+	if(adminMode) html += '<img id="showAdminFotobook" height="16" width="16" src="Icons/admin.png">';
     if(aktPage >= 1) html += getPreviousButton(); else html += '&nbsp;';
     html += '</th><th>';
 	html += '<td width="60px" align="left" id= "previousField"></td>';

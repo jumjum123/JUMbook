@@ -3,6 +3,7 @@ Nachdem wir das Fotobuch in JUMbook convertiert haben, siehe [Fotobuch konvertie
 Dazu gehen wir wie folgt vor:
 - [Admin starten](#admin-starten)
 - [Project als Admin aufrufen](#project-aufrufen)
+- [Attribute für Project](#attribute-für-project)
 - [Attribute für Seite](#attribute-für-seite)
 - [Attribute für Bilder](#attribute-für-bilder)
 - [Plugins](#plugins)
@@ -17,6 +18,21 @@ Dort wählen wir im zweiten Block unser bereits angelegtes Project. Dann ein Cli
 ## Project aufrufen
 Ein anderer Weg ist die manuelle Eingabe des entsprechenden URL.
 Dies ist https://www.meinServer.de/JUMbook/JUMbookViewer.html?fotobook=meinProject&adminmode=true
+
+## Attribute für Project
+Wechseln wir also zum Tab mit dem JUMbook. Dort sehen wir die erste Seite.
+Im oberen Teile stehen einige Zahlen, und ganz links einen Schlüssel.
+Dieser Schlüssel führt zur Adminseite für das Project. Zur Zeit gibt es nur einen Eintrag für Gesichter.
+ Dazu müssen natürlich vorher die Basisdaten erzeugt werden, siehe  [Gesichtserkennung](https://www.github.com/JUMbook/docu/Gesichtserkennung.md)
+#### Active
+Active geschaltet wird dabei nur die generelle Nutzung von Funktionen für Gesichter. Welche Funktion dabei aktiv ist kommt in den nächsten Feldern.
+#### Show Names
+Beim Mouseover kann der Name zum erkannten Gesicht als Titel angezeigt werden.
+#### Replace Mode
+Für ReplaceMode gibt es bisher zwei Methoden, übermalen mit Smiley, und ersetzen des Gesichts. Dazu fehlt noch eine Funktion mit der festgelegt wird, wer durch was ersetzt werden soll.
+#### Save und exit
+Bei Save wird die gerade erfolgte Änderung zuerst im Browser gespeichert. Dann erfolgt die Frage, ob sie zum Server hochgeladen werden soll.
+Exit bedeutet verlassen ohne speichern.
 
 ## Attribute für Seite
 Wechseln wir also zum Tab mit dem JUMbook. Dort sehen wir die erste Seite.

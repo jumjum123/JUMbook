@@ -7,6 +7,7 @@ Auf jeden Fall ist dazu eine gewisse Vorarbeit notwendig, wie das bei JUMbook au
 - [Basisdaten](Basisdaten)
 - [Gesichter im Project](#gesichter-im-project)
 - [Gesichter ersetzen](#gesichter-ersetzen)
+- [Smiley als Gesicht](#smiley-als-gesicht)
 - [Plugin](#plugin)
 
 ## Admin starten
@@ -26,11 +27,14 @@ Sobald genug Bilder hochgeladen sind, wird mit dem Button Create Person Descript
 Hier sollte man die einzelnen Bilder auch mal prüfen. Der Button Show zeigt am Ende der Seite das gewählte Bild mit den gefundenen Umrissen.
 
 ## Gesichter im Project
-Bisher war alles global, nun ab zum Project. Dazu wählt man im zweiten Block das Project aus. Und betätigt dann den Button Create Face Data for Project im letten Admin Block.
+Bisher war alles global, nun ab zum Project. Dazu wählt man im zweiten Block das Project aus. Und betätigt dann den Button Create Face Data for Project im letzten Admin Block.
 Danach werden alle vorhandenen Bilder nach Gesichtern durchsucht. Das kann, je nach CPU, einige Zeit dauern. Deshalb wird neben dem Button angezeigt, wieviel Bilder inzwischen untersucht wurden.
 
 ## Gesichter ersetzen
 Dieser Teil ist noch in Entwicklung. Im Test klappte es ein Gesicht durch Obama zu ersetzen. Man sieht natürlich, dass da etwas gefakt wird, aber als Spass ist es recht nett. Es fehlt noch eine Adminfunktion, um zu speichern wer duch wen ersetzt werden soll.
+
+## Smiley als Gesicht
+Eine weitere Option für Gesichter ist das überdecken durch einen Smiley. Dies ist viel einfacher als das ersetzen durch andere Gesichter. Und es ist sofort zu erkennen, und versucht nicht etwas wie einen Fake zu simulieren.
 
 ## Plugin
 Mit Faces gibt es ein Plugin, dass uns zeigt welche Personen auf welcher Seite gefunden wurden. Die meisten werden unbekannt sein.

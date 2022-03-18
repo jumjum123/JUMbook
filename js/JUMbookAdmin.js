@@ -1,5 +1,5 @@
 var bookName,bookFolder,dataFolder,imgFolder;
-var pagesextended,images;
+var pagesextended,images,faces;
 function init(){
   //elementShow("uploadTable",false);
   initFaces();
@@ -38,6 +38,7 @@ function fillLists(){
   fillList("Images","imageList");
   fillList("Videos","videoList");
   fillList("Audios","audioList");
+  fillPersonsInProject("foundFacesList");
   function fillList(type,id){
     getAjax(url + "&type=" + type,function(data){
       var el = getElementById(id);
@@ -382,6 +383,7 @@ function showPerson(){
     var url = "./Persons/" + getValue("personsList") + "/descriptor.json";
     getAjax(url,function(data){
       data = JSON.parse(data);
+	  drawRect(ctx,data.boxes[0]);
       showLandmark(ctx,data.landmarks[0].outline);
       showLandmark(ctx,data.landmarks[0].leftEye);
       showLandmark(ctx,data.landmarks[0].leftEyeBrow);
@@ -390,6 +392,15 @@ function showPerson(){
       showLandmark(ctx,data.landmarks[0].nose);
       showLandmark(ctx,data.landmarks[0].mouth);
     });
+  }
+  function drawRect(ctx,box){
+    ctx.save();
+	ctx.strokeStyle = "#00ff00";
+	ctx.lineWidth = 1;
+	ctx.beginPath();
+	ctx.rect(box.x,box.y,box.w,box.h);
+    ctx.stroke();
+    ctx.restore();
   }
   function showLandmark(ctx,pnts){
     ctx.save();
@@ -402,6 +413,23 @@ function showPerson(){
     ctx.restore();
   }
   img.src = url;
+}
+function fillPersonsInProject(id){
+  var foundFaces,i,url,img;
+  url = "Multibooks/" + getExistingProject() + "/Data/Faces.js";
+  runScript(url,function(data){
+    var el;
+    foundFaces = [];
+    for(img in faces){
+      for(i = 0; i < faces[img].length; i++){
+        name = faces[img][i].label;
+        if(foundFaces.indexOf(name) < 0) foundFaces.push(name);
+	  }
+    }
+	el = getElementById(id);
+	el.options.length = 0;
+    foundFaces.forEach(function(item){el.options.add(new Option(item));});
+  });	
 }
 
 function getNewProj(){ return getElementById("projectName").value;}

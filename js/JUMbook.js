@@ -56,7 +56,7 @@ function init(){
 		runScript(dataFolder + fncData + ".js",callback);
 	  }
       var dataArr = ["PagesExtended","Videos","Audios","Images","autorun"];
-	  if(fotobook.faces) dataArr.push("Faces"); else faces = {};
+	  if(fotobook.faces.active) dataArr.push("Faces"); else faces = {};
 	  doSerialFnc({},dataArr,getDataFnc,function(){preloadFaces(callback);});
 	}
 	loadData();

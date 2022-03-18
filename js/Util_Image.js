@@ -36,7 +36,7 @@ function imageutil(){
 	  
   };
   me.show = function(image,i,cb){
-    var img,canvas,ctx;
+    var i,img,canvas,ctx,faceReplace;
     img = new Image();
     canvas = getElementById("c_" + i);
     ctx = canvas.getContext('2d');
@@ -67,7 +67,21 @@ function imageutil(){
 	  else{
 		ctx.drawImage(img,part.left,part.top,part.width,part.height,0,0,canvas.width,canvas.height);
       }
-      replaceFace(image,canvas,ctx,"Fabian","Obama");
+	  if(fotobook.faces.active){
+		switch(fotobook.faces.mode){
+		  case "smiley":
+		    faceDrawSmiley(image,canvas,ctx);
+			break;
+		  default:
+	        if(fotobook.faces.replace){
+              for(i = 0; i < fotobook.faces.replace.length; i++){
+		        faceReplace = fotobook.faces.replace[i];
+		        replaceFace(image,canvas,ctx,faceReplace.from,faceReplace.to);
+		      }
+	        }
+			break;
+        }
+	  }
 	  cb();
 	};
     img.src = imgFolder + image.fileName;

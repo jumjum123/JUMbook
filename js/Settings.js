@@ -34,7 +34,7 @@ function saveSettings(){
     Sound : {Delay : getElementById("settingsSoundDelay").value},
     Image :	{Zoom : getElementById("settingsImageZoom").checked,
 	         Samples : getElementById("settingsImageSamples").checked
-	}	
+	},
   };
   setCookie("Multibook_" + getUrlVar("fotobook"),JSON.stringify(settings),5);
   initAutoRun();

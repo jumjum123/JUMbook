@@ -18,7 +18,11 @@ function initFaces(cb){
 }
 function preloadFaces(cb){
   var img,i,name;
-  foundFaces = {Obama:{img:new Image(),landmarks:{},x:0,y:0,w:0,h:0}};
+  foundFaces = {};
+  if(fotobook.facesReplace){
+    for(i = 0; i < fotobook.facesReplace.length;i++) 
+	  foundFaces[fotobook.facesReplace[i].to] = {img:new Image(),landmarks:{},x:0,y:0,w:0,h:0};
+  }
   doParallelFnc(foundFaces,getImage,function(){cb();});
   function getImage(data,id,cb){
     data.img.onload = function(){
@@ -35,7 +39,11 @@ function preloadFaces(cb){
 }
 function fillPersons(cb){
   var url= "scripts/JUMbookGetDir.php?path=Persons&" + getRnd();
-  getAjax(url,function(data){fillSelectList("personsList",data,cb);})
+  getAjax(url,function(data){
+	fillSelectList("personsList",data,function(){
+	  fillSelectList("allFacesList",data,cb);
+    });
+  });
 }
 function getLandmarks(landmarks){
   return {
@@ -47,7 +55,7 @@ function getLandmarks(landmarks){
 }
 function createFaceDesc(){
   var url = "scripts/JUMbookGetDir.php?path=Persons/" + getValue("personsList") + "&" + getRnd();
-  var retData = {label:getValue("personsList"),detections:[],landmarks:[],x:0,y:0,w:0,h:0};
+  var retData = {label:getValue("personsList"),detections:[],landmarks:[],boxes:[],x:0,y:0,w:0,h:0};
   getAjax(url,function(data){
 	data = JSON.parse(data);
 	doSerialFnc(retData,data,getFaceDesc,gotData);
@@ -70,6 +78,7 @@ function createFaceDesc(){
       retData.x = box._x;retData.y = box._y;
       retData.w = box._width;retData.h = box._height;
       retData.fileName = items[items.length - 1];
+	  retData.boxes.push({x:box._x,y:box._y,w:box._width,h:box._height});
       retData.detections.push(Array.from(detection.descriptor));
       retData.landmarks.push(getLandmarks(detection.landmarks.positions));
     }
@@ -174,8 +183,10 @@ function replaceFace(image,canvas,ctx,label,replaceLabel){
       if(persons[i].label == label){
         person = persons[i];
         replacePerson = foundFaces[replaceLabel];
-        outlineFace(person.landmarks);
+        ctx.save();
+        outlineFace(person.landmarks,person);
         drawImage(person,replacePerson);
+        ctx.restore();
       }
     }
   }
@@ -184,38 +195,80 @@ function replaceFace(image,canvas,ctx,label,replaceLabel){
            ,y:parseInt((pos._y - image.imagePart.top) / scaleY)};
   }
   function drawImage(person,replacePerson){
-    var size = getFaceRect(person.landmarks);
+    var size = getFaceRect(person.landmarks,person);
     var pos = getTargetXY({_x:size.x,_y:size.y});
-    var replaceSize = getFaceRect(replacePerson.landmarks[0])
+    var replaceSize = getFaceRect(replacePerson.landmarks[0],replacePerson);
     ctx.drawImage(replacePerson.img,replaceSize.x,replaceSize.y,replaceSize.w,replaceSize.h,
                   pos.x,pos.y,size.w / scaleX,size.h / scaleY);
   }
-  function getFaceRect(landmarks){
+  function getFaceRect(landmarks,box){
     var i,r = {x:0,y:0,w:0,h:0};
     r.x = landmarks.outline[0]._x;
     r.w = landmarks.outline[16]._x - r.x;
-    r.y = Math.min(landmarks.outline[16]._y,landmarks.outline[0]._y);
+    r.y = box.y;
+	r.y = Math.min(r.y,landmarks.outline[16]._y);
+	r.y = Math.min(r.y,landmarks.outline[0]._y);
     for(i = 0; i < 5;i++) r.y = Math.min(r.y,landmarks.leftEyeBrow[i]._y);
     for(i = 0; i < 5;i++) r.y = Math.min(r.y,landmarks.rightEyeBrow[i]._y);
     r.h = landmarks.outline[8]._y - r.y;
     return r;
   }
-  function outlineFace(landmarks){
+  function outlineFace(landmarks,box){
     var pnt;
-    var size = getFaceRect(landmarks);
+    var size = getFaceRect(landmarks,box);
     var targets = landmarks.outline.map(pnt => getTargetXY(pnt));
-    ctx.save();
-    ctx.strokeStyle = "#000000";
-    ctx.lineWidth = 0;
+    ctx.strokeStyle = "rgba(0,0,0,0)";
+	ctx.lineWidth = 5;
     ctx.beginPath();
     pnt = getTargetXY({_x:landmarks.leftEyeBrow[0]._x,_y:size.y});
     ctx.moveTo(pnt.x,pnt.y);
-    //ctx.moveTo(targets[0].x,targets[0].y);
     for(var i = 0; i < targets.length; i++){ ctx.lineTo(targets[i].x,targets[i].y); }
-    pnt = getTargetXY({_x:landmarks.rightEyeBrow[4]._x,_y:size.y});
+	pnt = getTargetXY({_x:landmarks.rightEyeBrow[4]._x,_y:box.y});
+	ctx.lineTo(pnt.x,pnt.y);
     ctx.closePath();
-    ctx.restore();
     ctx.stroke();
     ctx.clip();
+  }
+}
+function faceDrawSmiley(image,canvas,ctx){
+  var persons,box,x,y,w,h;
+  var scaleX = image.imagePart.width / canvas.width;
+  var scaleY = image.imagePart.height / canvas.height;
+  if(faces[image.fileName]){
+    persons = faces[image.fileName];
+	for(i = 0; i < persons.length; i++){
+       box = persons[i];
+	   drawSmiley(ctx,(box.x - image.imagePart.left) / scaleX,
+	                  (box.y - image.imagePart.top) / scaleY,box.w / scaleX,box.h / scaleY);
+	}
+  }
+  function drawSmiley(ctx,x,y,w,h){
+    ctx.fillStyle = 'LawnGreen';
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.ellipse(x + w/2,y + h/2,w / 2,h / 2,0,0,2 * Math.PI);
+    ctx.fill();
+    ctx.stroke();
+    ctx.closePath();
+    //eyes
+    ctx.fillStyle = 'cyan';
+    ctx.beginPath();
+    ctx.arc(x + w / 3,y + h / 3,w /15,0,2*Math.PI);
+    ctx.fill();
+    ctx.stroke();
+    ctx.closePath();
+    ctx.beginPath();
+    ctx.arc(x + w / 3 * 2,y + h/3,w/15,0,2 * Math.PI)
+    ctx.fill();
+    ctx.stroke();
+    ctx.closePath();
+    //mouth
+    ctx.strokeStyle = 'magenta';
+    ctx.lineWidth = 4;
+    ctx.beginPath();
+    ctx.ellipse(x + w / 2,y + h / 3 * 2,w / 3,h/4,0,0,-1*Math.PI);
+    ctx.stroke();
+    ctx.closePath();
   }
 }
